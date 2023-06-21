@@ -96,7 +96,7 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
                 VStack{
-                    ZStack {
+                    /*ZStack {
                     Rectangle()
                         .frame(width: 200.0, height: 100.0)
                         .foregroundColor(MAIN_COLOR)
@@ -104,10 +104,12 @@ struct LoginView: View {
                         .font(.title)
                         .foregroundColor(Color.white)
                     }
-                    Image("drinksityLogo")
+                    */
+                    Image("drinksity")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 300.0,height:200)
+                        .padding([.leading, .bottom], 10)
                     VStack{
                         Text("Sign In").padding()
                         Text("To").padding(.vertical, -10.0)
