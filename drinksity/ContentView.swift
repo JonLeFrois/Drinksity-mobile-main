@@ -95,16 +95,9 @@ struct LoginView: View {
     @State var passWord: String = "";
     var body: some View {
         NavigationView {
+            ZStack{
+                lightBlueColor.ignoresSafeArea()
                 VStack{
-                    /*ZStack {
-                    Rectangle()
-                        .frame(width: 200.0, height: 100.0)
-                        .foregroundColor(MAIN_COLOR)
-                    Text("Drinksity")
-                        .font(.title)
-                        .foregroundColor(Color.white)
-                    }
-                    */
                     Image("drinksity")
                         .resizable()
                         .scaledToFit()
@@ -121,14 +114,14 @@ struct LoginView: View {
                             .background(lightGreyColor)
                             .cornerRadius(5.0)
                             .padding(.bottom, 20)
-                            
-                            
+                        
+                        
                         SecureField("Password", text: $passWord)
                             .padding()
                             .background(lightGreyColor)
                             .cornerRadius(5.0)
                             .padding(.bottom, 20)
-
+                        
                         NavigationLink(destination: LandingView()){
                             Text("Sign In")
                                 .font(.headline)
@@ -137,13 +130,15 @@ struct LoginView: View {
                                 .frame(width: 200, height: 40)
                                 .background(.gray)
                                 .cornerRadius(15.0)
-                            }
+                        }
                         
                     }.padding()
-                        
+                    
                 }.padding(.bottom, 100.0)
+            }
         }.frame(maxWidth: SBWidth, maxHeight: SBHeight)
     }
+    
 }
 
 /*
