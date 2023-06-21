@@ -24,7 +24,7 @@ var SBHeight = UIScreen.main.bounds.height
 /*
  Colors for the project
  */
-let MAIN_COLOR = Color(red: 0/255, green: 0/255, blue: 255/255)
+let MAIN_COLOR = Color(red: 32/255, green: 32/255, blue: 114/255)
 let SEC_COLOR = Color(red: 255/255, green: 255/255, blue: 0/255)
 let lightBlueColor = Color(red: 63.0/255.0, green: 93.0/255.0, blue: 201.0/255.0, opacity: 1.0)
 let textColor = Color(red: 0/255, green: 0/255, blue: 0/255)
