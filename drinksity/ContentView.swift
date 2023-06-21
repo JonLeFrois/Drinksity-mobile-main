@@ -101,7 +101,7 @@ struct LoginView: View {
                     Image("drinksity")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 300.0,height:200)
+                        .frame(width: 260,height:180)
                         .padding([.leading, .bottom], 10)
                     VStack{
                         Text("Sign In").padding()
@@ -111,24 +111,25 @@ struct LoginView: View {
                     VStack{
                         TextField("Username", text: $userName)
                             .padding()
-                            .background(lightGreyColor)
+                            .background(.white)
                             .cornerRadius(5.0)
                             .padding(.bottom, 20)
                         
                         
                         SecureField("Password", text: $passWord)
                             .padding()
-                            .background(lightGreyColor)
+                            .background(.white)
                             .cornerRadius(5.0)
                             .padding(.bottom, 20)
                         
                         NavigationLink(destination: LandingView()){
                             Text("Sign In")
                                 .font(.headline)
-                                .foregroundColor(.white)
+                                .fontWeight(.bold)
+                                .foregroundColor(textColor)
                                 .padding()
                                 .frame(width: 140, height: 45)
-                                .background(.gray)
+                                .background(.white)
                                 .cornerRadius(15.0)
                         }
                         
