@@ -93,6 +93,7 @@ struct TwentyOneAlert: View{
 struct LoginView: View {
     @State var userName: String = "";
     @State var passWord: String = "";
+    @State private var isPasswordVisible = false
     var body: some View {
         NavigationView {
             ZStack{
@@ -115,11 +116,28 @@ struct LoginView: View {
                                 .cornerRadius(15.0)
                                 .padding([.leading, .bottom, .trailing], 25).padding(.top, 15)
                             
-                            SecureField("Password", text: $passWord)
-                                .padding()
-                                .background(lightGreyColor)
-                                .cornerRadius(15.0)
-                                .padding([.leading, .trailing], 25)
+                            ZStack {
+                                if isPasswordVisible {
+                                    TextField("Password", text: $passWord)
+                                        .padding()
+                                        .background(lightGreyColor)
+                                        .cornerRadius(15.0)
+                                        .padding([.leading, .trailing], 25)
+                                } else {
+                                    SecureField("Password", text: $passWord)
+                                        .padding()
+                                        .background(lightGreyColor)
+                                        .cornerRadius(15.0)
+                                        .padding([.leading, .trailing], 25)
+                                }
+                                Button(action: {
+                                    isPasswordVisible.toggle()
+                                }) {
+                                    Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
+                                        .foregroundColor(.gray)
+                                }.padding(.leading, 250)
+                            }
+                            
                             Text("Forgot Password?")
                                 .padding(.bottom, 40).padding(.leading, -150)
                                 .font(.system(size: 12))
