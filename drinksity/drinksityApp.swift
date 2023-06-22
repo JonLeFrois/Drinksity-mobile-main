@@ -97,7 +97,7 @@ struct BeveragesView: View {
                 }
             }
         }
-        .background(Color.gray)
+        .background(Color.white)
         .frame(maxHeight: 713)
     }
 }

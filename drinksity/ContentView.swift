@@ -182,7 +182,7 @@ struct LandingView: View {
      This changes the tab bar at the bottom to always be white
      */
     init(){
-        UITabBar.appearance().backgroundColor = UIColor.white
+        UITabBar.appearance().backgroundColor = UIColor.systemGray5
     }
     var body: some View {
 
@@ -296,7 +296,7 @@ struct ProfilePageView: View {
             .padding()
             .frame(maxHeight: .infinity)
         }
-        .background(Color.gray)
+        .background(Color.white)
         .frame(maxHeight: .infinity)
     }
 }
