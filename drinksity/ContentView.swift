@@ -102,38 +102,55 @@ struct LoginView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 260,height:180)
-                        .padding([.leading, .bottom], 10)
-                    VStack{
+                        .padding([.leading, .bottom], 10).padding(.bottom, 40)
+                    /*VStack{
                         Text("Sign In").padding()
                         Text("To").padding(.vertical, -10.0)
                         Text("Start Drinking").padding()
-                    }
-                    VStack{
-                        TextField("Username", text: $userName)
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(5.0)
-                            .padding(.bottom, 20)
-                        
-                        
-                        SecureField("Password", text: $passWord)
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(5.0)
-                            .padding(.bottom, 20)
-                        
-                        NavigationLink(destination: LandingView()){
-                            Text("Sign In")
-                                .font(.headline)
-                                .fontWeight(.bold)
-                                .foregroundColor(textColor)
+                    }*/
+                    ZStack{
+                        Rectangle()
+                            .frame(maxWidth: 350, maxHeight: 350)
+                            .foregroundColor(.white)
+                            .cornerRadius(25.0)
+                        VStack{
+                            TextField("Username", text: $userName)
                                 .padding()
-                                .frame(width: 140, height: 45)
-                                .background(.white)
+                                .background(lightGreyColor)
                                 .cornerRadius(15.0)
-                        }
-                        
-                    }.padding()
+                                .padding([.leading, .bottom, .trailing], 25).padding(.top, 15)
+                            
+                            SecureField("Password", text: $passWord)
+                                .padding()
+                                .background(lightGreyColor)
+                                .cornerRadius(15.0)
+                                .padding([.leading, .trailing], 25)
+                            Text("Forgot Password?")
+                                .padding(.bottom, 40).padding(.leading, -150)
+                                .font(.system(size: 12))
+                            
+                            NavigationLink(destination: LandingView()){
+                                Text("Log In")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(textColor)
+                                    .padding()
+                                    .frame(width: 175, height: 50)
+                                    .background(lightBlueColor)
+                                    .cornerRadius(25.0)
+                            }
+                            HStack{
+                                Text("Don't have an account?")
+                                    .font(.system(size: 14))
+                                Text("Register")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(lightBlueColor)
+                            }.padding(.top, 30)
+                            
+                            
+                        }.padding()
+                    }
                     
                 }.padding(.bottom, 100.0)
             }
