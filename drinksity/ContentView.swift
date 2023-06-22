@@ -138,8 +138,8 @@ struct LoginView: View {
                                 }.padding(.leading, 250)
                             }
                             
-                            Text("Forgot Password?")
-                                .padding(.bottom, 40).padding(.leading, -150)
+                            Text("Forgot Username/Password?")
+                                .padding(.bottom, 40).padding(.leading, -140)
                                 .font(.system(size: 12))
                             
                             NavigationLink(destination: LandingView()){
