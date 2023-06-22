@@ -28,7 +28,7 @@ let MAIN_COLOR = Color(red: 32/255, green: 32/255, blue: 114/255)
 let SEC_COLOR = Color(red: 255/255, green: 255/255, blue: 0/255)
 let lightBlueColor = Color(red: 47.0/255.0, green: 168.0/255.0, blue: 255.0/255.0, opacity: 1.0)
 let textColor = Color(red: 0/255, green: 0/255, blue: 0/255)
-let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
+let lightGreyColor = Color(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, opacity: 1.0)
 
 /*
  Our list of drinks as an array
@@ -103,11 +103,6 @@ struct LoginView: View {
                         .scaledToFit()
                         .frame(width: 260,height:180)
                         .padding([.leading, .bottom], 10).padding(.bottom, 40)
-                    /*VStack{
-                        Text("Sign In").padding()
-                        Text("To").padding(.vertical, -10.0)
-                        Text("Start Drinking").padding()
-                    }*/
                     ZStack{
                         Rectangle()
                             .frame(maxWidth: 350, maxHeight: 350)
