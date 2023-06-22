@@ -133,7 +133,7 @@ struct LoginView: View {
                                 Button(action: {
                                     isPasswordVisible.toggle()
                                 }) {
-                                    Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
+                                    Image(systemName: isPasswordVisible ? "eye" : "eye.slash")
                                         .foregroundColor(.gray)
                                 }.padding(.leading, 250)
                             }
