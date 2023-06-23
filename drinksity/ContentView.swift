@@ -185,6 +185,7 @@ struct LoginView: View {
      @State var passWord: String = "";
      @State var fullName: String = "";
      @State var phoneNumber: String = "";
+     @State var birthDate: String = "";
      var body: some View {
          NavigationView {
              ZStack{
@@ -205,22 +206,27 @@ struct LoginView: View {
                                  .padding()
                                  .background(lightGreyColor)
                                  .cornerRadius(15.0)
-                                 .padding([.leading, .bottom, .trailing], 25).padding(.top, 15)
+                                 .padding([.leading,  .trailing], 25).padding([.top, .bottom], 15)
                              TextField("Username / Email", text: $userName)
                                  .padding()
                                  .background(lightGreyColor)
                                  .cornerRadius(15.0)
-                                 .padding([.leading, .bottom, .trailing], 25)
+                                 .padding([.leading, .trailing], 25).padding(.bottom, 15)
                              TextField("Phone Number", text: $phoneNumber)
                                  .padding()
                                  .background(lightGreyColor)
                                  .cornerRadius(15.0)
-                                 .padding([.leading, .bottom, .trailing], 25)
+                                 .padding([.leading, .trailing], 25).padding(.bottom, 15)
+                             TextField("Birthday(MM/DD/YYYY)", text: $birthDate)
+                                 .padding()
+                                 .background(lightGreyColor)
+                                 .cornerRadius(15.0)
+                                 .padding([.leading, .trailing], 25).padding(.bottom, 15)
                             TextField("Password", text: $passWord)
                                 .padding()
                                 .background(lightGreyColor)
                                 .cornerRadius(15.0)
-                                .padding([.leading, .trailing], 25).padding(.bottom, 20)
+                                .padding([.leading, .trailing], 25).padding(.bottom, 15)
                              
                              NavigationLink(destination: LandingView()){
                                  Text("Sign Up")
