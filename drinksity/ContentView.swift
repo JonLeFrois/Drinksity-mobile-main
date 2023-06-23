@@ -195,7 +195,7 @@ struct LoginView: View {
                          .resizable()
                          .scaledToFit()
                          .frame(width: 260,height:180)
-                         .padding([.leading, .bottom], 10).padding(.top, 40)
+                         .padding(.leading, 10).padding(.top, 60)
                      ZStack{
                          Rectangle()
                              .frame(maxWidth: 350, maxHeight: 500)
