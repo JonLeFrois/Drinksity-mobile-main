@@ -60,6 +60,7 @@ struct ContentView_Previews: PreviewProvider {
             ProducersView()
             LandingView()
             LoginView()
+            SignUpView()
         }
     }
 }
@@ -155,10 +156,12 @@ struct LoginView: View {
                             HStack{
                                 Text("Don't have an account?")
                                     .font(.system(size: 14))
-                                Text("Register")
-                                    .font(.system(size: 14))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(lightBlueColor)
+                                NavigationLink(destination: SignUpView()){
+                                    Text("Register")
+                                        .font(.system(size: 14))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(lightBlueColor)
+                                }
                             }.padding(.top, 30)
                             
                             
@@ -168,9 +171,94 @@ struct LoginView: View {
                 }.padding(.bottom, 100.0)
             }
         }.frame(maxWidth: SBWidth, maxHeight: SBHeight)
+            .navigationBarBackButtonHidden(true)
     }
     
 }
+
+/*
+ This is the view that the phone will land on when signing up for a new account.
+ Every other view is available from this view through NavigationLink
+ */
+ struct SignUpView: View {
+     @State var userName: String = "";
+     @State var passWord: String = "";
+     @State var fullName: String = "";
+     @State var phoneNumber: String = "";
+     var body: some View {
+         NavigationView {
+             ZStack{
+                 lightBlueColor.ignoresSafeArea()
+                 VStack{
+                     Image("drinksity")
+                         .resizable()
+                         .scaledToFit()
+                         .frame(width: 260,height:180)
+                         .padding([.leading, .bottom], 10).padding(.top, 40)
+                     ZStack{
+                         Rectangle()
+                             .frame(maxWidth: 350, maxHeight: 500)
+                             .foregroundColor(.white)
+                             .cornerRadius(25.0)
+                         VStack{
+                             TextField("Full Name", text: $fullName)
+                                 .padding()
+                                 .background(lightGreyColor)
+                                 .cornerRadius(15.0)
+                                 .padding([.leading, .bottom, .trailing], 25).padding(.top, 15)
+                             TextField("Username / Email", text: $userName)
+                                 .padding()
+                                 .background(lightGreyColor)
+                                 .cornerRadius(15.0)
+                                 .padding([.leading, .bottom, .trailing], 25)
+                             TextField("Phone Number", text: $phoneNumber)
+                                 .padding()
+                                 .background(lightGreyColor)
+                                 .cornerRadius(15.0)
+                                 .padding([.leading, .bottom, .trailing], 25)
+                            TextField("Password", text: $passWord)
+                                .padding()
+                                .background(lightGreyColor)
+                                .cornerRadius(15.0)
+                                .padding([.leading, .trailing], 25).padding(.bottom, 20)
+                             
+                             NavigationLink(destination: LandingView()){
+                                 Text("Sign Up")
+                                     .font(.headline)
+                                     .fontWeight(.bold)
+                                     .foregroundColor(textColor)
+                                     .padding()
+                                     .frame(width: 175, height: 50)
+                                     .background(lightBlueColor)
+                                     .cornerRadius(25.0)
+                                     .padding(.bottom, -20)
+                             }
+                            HStack{
+                                Text("Already have an account?")
+                                    .font(.system(size: 14))
+                                NavigationLink(destination: LoginView()){
+                                    Text("Log in")
+                                        .font(      .system(size: 14))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(lightBlueColor)
+                                }
+                            }.padding(.top, 30)
+                             
+                         }.padding()
+                     }
+                     
+                 }.padding(.bottom, 100.0)
+             }
+         }.frame(maxWidth: SBWidth, maxHeight: SBHeight)
+             .navigationBarBackButtonHidden(true)
+     }
+     
+ }
+
+
+
+
+
 
 /*
  This is the landing view when the user is done logging in
