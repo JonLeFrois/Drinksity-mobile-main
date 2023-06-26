@@ -271,46 +271,40 @@ struct LoginView: View {
  It has 4 tabs that a user can parse through
  */
 struct LandingView: View {
-    
     /*
      This changes the tab bar at the bottom to always be white
      */
     init(){
-        UITabBar.appearance().backgroundColor = UIColor.systemGray5
+        let appearance = UITabBarAppearance()
+            appearance.stackedLayoutAppearance.normal.iconColor = UIColor(MAIN_COLOR)
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(MAIN_COLOR)]
+            appearance.stackedLayoutAppearance.selected.iconColor = UIColor(lightBlueColor)
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(lightBlueColor)]
+        UITabBar.appearance().standardAppearance = appearance
     }
     var body: some View {
 
         TabView {
-            ProfilePageView()
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("Profile")
-                        .background(lightBlueColor)
-                        .foregroundColor(textColor)
-                }
             BeveragesView()
                 .tabItem {
                     Image(systemName: "21.square")
                     Text("Beverages")
-                        .background(lightBlueColor)
-                        .foregroundColor(textColor)
                 }
             TrailsView()
                 .tabItem {
                     Image(systemName: "globe")
                     Text("Trails")
-                        .background(lightBlueColor)
-                        .foregroundColor(textColor)
                 }
             ProducersView()
                 .tabItem {
                     Image(systemName: "map")
                     Text("Producers")
-                        .background(lightBlueColor)
-                        .foregroundColor(textColor)
-                    
                 }
-                
+            ProfilePageView()
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Profile")
+                }
         }
         .navigationBarTitle("")
         .navigationBarBackButtonHidden(true)
