@@ -95,6 +95,7 @@ struct LoginView: View {
     @State var userName: String = "";
     @State var passWord: String = "";
     @State private var isPasswordVisible = false
+    @State private var isBoxChecked = false
     var body: some View {
         NavigationView {
             ZStack{
@@ -111,12 +112,16 @@ struct LoginView: View {
                             .foregroundColor(.white)
                             .cornerRadius(25.0)
                         VStack{
-                            TextField("Username", text: $userName)
-                                .padding()
-                                .background(lightGreyColor)
-                                .cornerRadius(15.0)
-                                .padding([.leading, .bottom, .trailing], 25).padding(.top, 15)
-                            
+                            ZStack{
+                                TextField("Username", text: $userName)
+                                    .padding()
+                                    .background(lightGreyColor)
+                                    .cornerRadius(15.0)
+                                    .padding([.leading, .bottom, .trailing], 25).padding(.top, 15)
+                                Image(systemName: "faceid")
+                                    .foregroundColor(.gray)
+                                    .padding(.leading, 250).padding(.bottom,10)
+                            }
                             ZStack {
                                 if isPasswordVisible {
                                     TextField("Password", text: $passWord)
@@ -138,11 +143,17 @@ struct LoginView: View {
                                         .foregroundColor(.gray)
                                 }.padding(.leading, 250)
                             }
-                            
-                            Text("Forgot Username/Password?")
-                                .padding(.bottom, 40).padding(.leading, -140)
-                                .font(.system(size: 12))
-                            
+                            HStack{
+                                Text("Remember me")
+                                    .padding(.leading, -145)
+                                    .font(.system(size: 14))
+                                Button(action: {
+                                    isBoxChecked.toggle()
+                                }) {
+                                    Image(systemName: isBoxChecked ? "checkmark.square.fill" : "square")
+                                        .foregroundColor(.gray)
+                                }.padding(.leading, -55)
+                            }.padding(.bottom, 40)
                             NavigationLink(destination: LandingView()){
                                 Text("Log In")
                                     .font(.headline)
@@ -153,6 +164,9 @@ struct LoginView: View {
                                     .background(lightBlueColor)
                                     .cornerRadius(25.0)
                             }
+                            Text("Forgot username/password?")
+                                .font(.system(size: 14))
+                                .padding(.bottom, -25)
                             HStack{
                                 Text("Don't have an account?")
                                     .font(.system(size: 14))
