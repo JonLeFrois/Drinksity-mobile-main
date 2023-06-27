@@ -57,7 +57,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ProducersView()
             LandingView()
             LoginView()
             SignUpView()
@@ -300,6 +299,11 @@ struct LandingView: View {
     var body: some View {
 
         TabView {
+            ProfilePageView()
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Profile")
+                }
             BeveragesView()
                 .tabItem {
                     Image(systemName: "21.square")
@@ -313,16 +317,17 @@ struct LandingView: View {
             ProducersView()
                 .tabItem {
                     Image(systemName: "map")
-                    Text("Producers")
-                }
-            ProfilePageView()
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("Profile")
+                    Text("Events")
                 }
         }
         .navigationBarTitle("")
         .navigationBarBackButtonHidden(true)
+        .overlay(
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundColor(MAIN_COLOR)
+                        .padding(.top, 660)
+                )
     }
 }
 
@@ -359,6 +364,8 @@ This is a view for the profile page from the tab view
 This view calls the different moduels as a view and puts the drink items from the top of the file in a view for the user to look at.
 */
 struct ProfilePageView: View {
+    @State private var name = "John Smith"
+    @State private var isEditing = false
     var body: some View {
         ScrollView {
             Section {
@@ -373,7 +380,22 @@ struct ProfilePageView: View {
                 }
             }
             VStack {
-                Text("John Smith")
+                HStack{
+                    if isEditing {
+                        TextField("Enter your name", text: $name, onCommit: {
+                            isEditing = false
+                        })
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    } else {
+                        Text(name)
+                    }
+                    Button(action: {
+                        isEditing.toggle()
+                    }) {
+                        Image(systemName: "pencil.line")
+                            .foregroundColor(.gray)
+                    }
+                }
                 Image("profilePic")
                     .padding(.bottom, 5.0)
                 VStack(alignment: .leading){
