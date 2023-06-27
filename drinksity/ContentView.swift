@@ -367,62 +367,66 @@ struct ProfilePageView: View {
     @State private var name = "John Smith"
     @State private var isEditing = false
     var body: some View {
-        ScrollView {
-            Section {
-                ZStack {
+        ZStack{
+            Color(UIColor.systemGray6)
+            ScrollView {
+                Section {
+                    ZStack {
+                        Rectangle()
+                            .frame(maxWidth: .infinity, maxHeight: 150)
+                            .foregroundColor(MAIN_COLOR)
+                            .padding(.top, -100)
+                        Text("Your Profile")
+                            .font(.largeTitle)
+                            .foregroundColor(Color.white)
+                    }
+                }
+                VStack {
+                    HStack{
+                        if isEditing {
+                            TextField("Enter your name", text: $name, onCommit: {
+                                isEditing = false
+                            })
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        } else {
+                            Text(name)
+                        }
+                        Button(action: {
+                            isEditing.toggle()
+                        }) {
+                            Image(systemName: "pencil.line")
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    Image("profilePic")
+                        .padding(.bottom, 5.0)
                     Rectangle()
-                        .frame(maxWidth: .infinity, maxHeight: 150)
+                        .frame(maxWidth: .infinity, maxHeight: 1)
                         .foregroundColor(MAIN_COLOR)
-                        .padding(.top, -100)
-                    Text("Your Profile")
-                        .font(.largeTitle)
-                        .foregroundColor(Color.white)
-                }
-            }
-            VStack {
-                HStack{
-                    if isEditing {
-                        TextField("Enter your name", text: $name, onCommit: {
-                            isEditing = false
-                        })
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    } else {
-                        Text(name)
-                    }
-                    Button(action: {
-                        isEditing.toggle()
-                    }) {
-                        Image(systemName: "pencil.line")
-                            .foregroundColor(.gray)
-                    }
-                }
-                Image("profilePic")
-                    .padding(.bottom, 5.0)
-                VStack(alignment: .leading){
-                    Text("Favorite Drinks")
-                        .font(.callout)
-                    VStack{
-                        UserFavDrinks(Contents: DrinksList)
-                            
-                    }
-                    .padding(.bottom, 5.0)
-                    VStack{
+                        .padding([.leading, .trailing], -20)
+                    VStack(alignment: .leading){
+                        Text("Favorite Drinks")
+                        VStack{ UserFavDrinks(Contents: DrinksList) }
+                            .padding(.bottom, 5.0)
                         Text("Favorite Locations")
-                            .font(.callout)
-                    }
-                    .padding(.bottom, 5.0)
-                    VStack{
+                            .padding(.bottom, 5)
                         Text("Friends")
-                            .font(.callout)
+                            .padding(.bottom, 5)
+                        Text("Recent Visits")
+                            .padding(.bottom, 5)
+                        Text("Points")
+                            .padding(.bottom, 5)
+                        Text("Certificates")
+                            .padding(.bottom, 5)
+                        Text("Settings")
+                            .padding(.bottom, 5)
                     }
                     .padding(.bottom, 5.0)
                 }
-                .padding(.bottom, 5.0)
+                .padding()
+                .frame(maxHeight: .infinity)
             }
-            .padding()
             .frame(maxHeight: .infinity)
         }
-        .background(Color.white)
-        .frame(maxHeight: .infinity)
     }
 }
