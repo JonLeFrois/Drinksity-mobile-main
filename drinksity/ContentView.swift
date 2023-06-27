@@ -290,10 +290,11 @@ struct LandingView: View {
      */
     init(){
         let appearance = UITabBarAppearance()
-            appearance.stackedLayoutAppearance.normal.iconColor = UIColor(MAIN_COLOR)
-            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(MAIN_COLOR)]
-            appearance.stackedLayoutAppearance.selected.iconColor = UIColor(lightBlueColor)
-            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(lightBlueColor)]
+        appearance.backgroundColor = UIColor.white
+        appearance.stackedLayoutAppearance.normal.iconColor = UIColor(MAIN_COLOR)
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(MAIN_COLOR)]
+        appearance.stackedLayoutAppearance.selected.iconColor = UIColor(lightBlueColor)
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(lightBlueColor)]
         UITabBar.appearance().standardAppearance = appearance
     }
     var body: some View {
@@ -363,8 +364,9 @@ struct ProfilePageView: View {
             Section {
                 ZStack {
                     Rectangle()
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, maxHeight: 150)
                         .foregroundColor(MAIN_COLOR)
+                        .padding(.top, -100)
                     Text("Your Profile")
                         .font(.largeTitle)
                         .foregroundColor(Color.white)

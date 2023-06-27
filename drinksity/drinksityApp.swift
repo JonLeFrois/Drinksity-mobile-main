@@ -75,8 +75,10 @@ struct BeveragesView: View {
             Section {
                 ZStack {
                     Rectangle()
-                        .frame(maxWidth: .infinity, maxHeight: 100)
+                        .frame(maxWidth: .infinity, maxHeight: 200)
                         .foregroundColor(MAIN_COLOR)
+                        .edgesIgnoringSafeArea(.top)
+                        .padding(.top, -100)
                     Text("Your Beverages")
                         .font(.largeTitle)
                         .foregroundColor(Color.white)
