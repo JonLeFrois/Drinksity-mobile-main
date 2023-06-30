@@ -71,36 +71,38 @@ func createItems() -> Array<Drink>{
 struct BeveragesView: View {
     //blue header up top
     var body: some View {
-        ScrollView {
-            Section {
-                ZStack {
-                    Rectangle()
-                        .frame(maxWidth: .infinity, maxHeight: 200)
-                        .foregroundColor(MAIN_COLOR)
-                        .edgesIgnoringSafeArea(.top)
-                        .padding(.top, -100)
-                    Text("Your Beverages")
-                        .font(.largeTitle)
-                        .foregroundColor(Color.white)
-                }
-            }
-            //scrollable view of beverages
-            VStack(alignment: .leading) {
-                let DrinksList = createItems()
-                //use DrinkItem objects in the vstack
-                //the contents of these items would pull from the contents of "Drink" structs
-                ForEach(0...DrinksList.count - 1, id:\.self) { i in
-                    //makes a drink item to be shown in a list on the beverages tab
-                    //each item leads to the drinks profile page when clicked
-                    NavigationLink(destination: DrinkProfile(drink: DrinksList[i])){
-                        DrinkItem(drink:DrinksList[i])
+        ZStack {
+            Color(UIColor(backGroundColor))
+            ScrollView {
+                Section {
+                    ZStack {
+                        Rectangle()
+                            .frame(maxWidth: .infinity, maxHeight: 200)
+                            .foregroundColor(MAIN_COLOR)
+                            .edgesIgnoringSafeArea(.top)
+                            .padding(.top, -100)
+                        Text("Beverages")
+                            .font(.largeTitle)
+                            .foregroundColor(Color.white)
                     }
-                    .padding(.horizontal, 10.0)
+                }
+                //scrollable view of beverages
+                VStack(alignment: .leading) {
+                    let DrinksList = createItems()
+                    //use DrinkItem objects in the vstack
+                    //the contents of these items would pull from the contents of "Drink" structs
+                    ForEach(0...DrinksList.count - 1, id:\.self) { i in
+                        //makes a drink item to be shown in a list on the beverages tab
+                        //each item leads to the drinks profile page when clicked
+                        NavigationLink(destination: DrinkProfile(drink: DrinksList[i])){
+                            DrinkItem(drink:DrinksList[i])
+                        }
+                        .padding(.horizontal, 10.0)
+                    }
                 }
             }
+            .frame(maxHeight: 713)
         }
-        .background(Color.white)
-        .frame(maxHeight: 713)
     }
 }
 

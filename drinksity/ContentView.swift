@@ -24,11 +24,12 @@ var SBHeight = UIScreen.main.bounds.height
 /*
  Colors for the project
  */
-let MAIN_COLOR = Color(red: 32/255, green: 32/255, blue: 114/255)
+let MAIN_COLOR = Color(red: 20/255, green: 20/255, blue: 69/255)
 let SEC_COLOR = Color(red: 255/255, green: 255/255, blue: 0/255)
 let lightBlueColor = Color(red: 47.0/255.0, green: 168.0/255.0, blue: 255.0/255.0, opacity: 1.0)
 let textColor = Color(red: 0/255, green: 0/255, blue: 0/255)
 let lightGreyColor = Color(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, opacity: 1.0)
+let backGroundColor = Color(red: 234/255, green: 240/255, blue: 255/255)
 
 /*
  Our list of drinks as an array
@@ -58,6 +59,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             LandingView()
+            TrailsView()
             LoginView()
             SignUpView()
         }
@@ -314,7 +316,7 @@ struct LandingView: View {
                     Image(systemName: "globe")
                     Text("Trails")
                 }
-            ProducersView()
+            EventsView()
                 .tabItem {
                     Image(systemName: "map")
                     Text("Events")
@@ -335,11 +337,24 @@ struct LandingView: View {
  This is a view for the producers page from the tab view
  From this view you should call functions/other views to enhance the product
  */
-struct ProducersView: View {
+struct EventsView: View {
     var body: some View {
-        ScrollView{
-            VStack {
-                Image("breweryPage")
+        ZStack {
+            Color(UIColor(backGroundColor))
+            ScrollView{
+                VStack {
+                    Section {
+                        ZStack {
+                            Rectangle()
+                                .frame(maxWidth: .infinity, maxHeight: 150)
+                                .foregroundColor(MAIN_COLOR)
+                                .padding(.top, -100)
+                            Text("Events")
+                                .font(.largeTitle)
+                                .foregroundColor(Color.white)
+                        }
+                    }
+                }
             }
         }
     }
@@ -351,9 +366,23 @@ struct ProducersView: View {
  */
 struct TrailsView: View {
     var body: some View {
-        ScrollView{
-            VStack {
-                Image("beverageTrail")
+        ZStack {
+            Color(UIColor(backGroundColor))
+            ScrollView{
+                VStack {
+                    Section {
+                        ZStack {
+                            Rectangle()
+                                .frame(maxWidth: .infinity, maxHeight: 150)
+                                .foregroundColor(MAIN_COLOR)
+                                .padding(.top, -100)
+                            Text("Beverage Trails")
+                                .font(.largeTitle)
+                                .foregroundColor(Color.white)
+                        }
+                    }
+                    
+                }
             }
         }
     }
@@ -368,7 +397,7 @@ struct ProfilePageView: View {
     @State private var isEditing = false
     var body: some View {
         ZStack{
-            Color(UIColor.systemGray6)
+            Color(UIColor(backGroundColor))
             ScrollView {
                 Section {
                     ZStack {
