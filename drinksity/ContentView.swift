@@ -301,11 +301,7 @@ struct LandingView: View {
     var body: some View {
 
         TabView {
-            ProfilePageView()
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("Profile")
-                }
+            
             BeveragesView()
                 .tabItem {
                     Image(systemName: "21.square")
@@ -314,12 +310,17 @@ struct LandingView: View {
             TrailsView()
                 .tabItem {
                     Image(systemName: "globe")
-                    Text("Trails")
+                    Text("Passport")
                 }
             EventsView()
                 .tabItem {
-                    Image(systemName: "map")
+                    Image(systemName: "location")
                     Text("Events")
+                }
+            ProfilePageView()
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Profile")
                 }
         }
         .navigationBarTitle("")
@@ -393,7 +394,7 @@ This is a view for the profile page from the tab view
 This view calls the different moduels as a view and puts the drink items from the top of the file in a view for the user to look at.
 */
 struct ProfilePageView: View {
-    @State private var name = "John Smith"
+    @State private var name = "Name Here"
     @State private var isEditing = false
     var body: some View {
         ZStack{
@@ -411,6 +412,7 @@ struct ProfilePageView: View {
                     }
                 }
                 VStack {
+                    Image("profilePic")
                     HStack{
                         if isEditing {
                             TextField("Enter your name", text: $name, onCommit: {
@@ -427,21 +429,24 @@ struct ProfilePageView: View {
                                 .foregroundColor(.gray)
                         }
                     }
-                    Image("profilePic")
-                        .padding(.bottom, 5.0)
+                        .padding(.bottom, 18.0)
                     Rectangle()
-                        .frame(maxWidth: .infinity, maxHeight: 1)
+                        .frame(maxWidth: .infinity, maxHeight: 2)
                         .foregroundColor(MAIN_COLOR)
                         .padding([.leading, .trailing], -20)
+                    
+                    
                     VStack(alignment: .leading){
-                        Text("Favorite Drinks")
-                        VStack{ UserFavDrinks(Contents: DrinksList) }
+                        
+                        Text("Recent Visits")
+                            .padding(.top, 18)
+                        //VStack{ UserFavDrinks(Contents: DrinksList) }
                             .padding(.bottom, 5.0)
-                        Text("Favorite Locations")
-                            .padding(.bottom, 5)
                         Text("Friends")
                             .padding(.bottom, 5)
-                        Text("Recent Visits")
+                        Text("Favorite Drinks")
+                            .padding(.bottom, 5)
+                        Text("Add Previous Passport")
                             .padding(.bottom, 5)
                         Text("Points")
                             .padding(.bottom, 5)
@@ -449,6 +454,7 @@ struct ProfilePageView: View {
                             .padding(.bottom, 5)
                         Text("Settings")
                             .padding(.bottom, 5)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(.bottom, 5.0)
                 }
