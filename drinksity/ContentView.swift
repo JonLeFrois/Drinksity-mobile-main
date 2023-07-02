@@ -25,12 +25,11 @@ var SBHeight = UIScreen.main.bounds.height
  Colors for the project
  */
 let MAIN_COLOR = Color(red: 20/255, green: 20/255, blue: 69/255)
-let SEC_COLOR = Color(red: 255/255, green: 255/255, blue: 0/255)
+let SEC_COLOR = Color(red: 255/255, green: 199/255, blue: 0/255)
 let lightBlueColor = Color(red: 47.0/255.0, green: 168.0/255.0, blue: 255.0/255.0, opacity: 1.0)
 let textColor = Color(red: 0/255, green: 0/255, blue: 0/255)
 let lightGreyColor = Color(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, opacity: 1.0)
 let backGroundColor = Color(red: 234/255, green: 240/255, blue: 255/255)
-
 /*
  Our list of drinks as an array
  */
@@ -302,7 +301,7 @@ struct LandingView: View {
 
         TabView {
             
-            BeveragesView()
+            LocationsView()
                 .tabItem {
                     Image(systemName: "21.square")
                     Text("Beverages")

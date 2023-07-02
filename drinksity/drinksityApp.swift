@@ -65,10 +65,12 @@ func createItems() -> Array<Drink>{
     return DrinksList
 }
 
+
+
 /*
  This is the view for the drinks in the beverage tab
  */
-struct BeveragesView: View {
+struct LocationsView: View {
     //blue header up top
     var body: some View {
         ZStack {
@@ -77,15 +79,73 @@ struct BeveragesView: View {
                 Section {
                     ZStack {
                         Rectangle()
-                            .frame(maxWidth: .infinity, maxHeight: 200)
+                            .frame(width: .infinity, height: 150)
                             .foregroundColor(MAIN_COLOR)
                             .edgesIgnoringSafeArea(.top)
                             .padding(.top, -100)
-                        Text("Beverages")
-                            .font(.largeTitle)
-                            .foregroundColor(Color.white)
+                        HStack{
+                            VStack{
+                                Text("Locations")
+                                    .font(.title2)
+                                    .foregroundColor(Color.white)
+                                    .padding(.top, 10)
+                                Rectangle()
+                                    .frame(width: UIScreen.main.bounds.width / 2, height: 7)
+                                    .foregroundColor(SEC_COLOR)
+                            }
+                            VStack{
+                                Text("Beverages")
+                                    .font(.title2)
+                                    .foregroundColor(Color.white)
+                                    .padding(.top, 10)
+                                Rectangle()
+                                    .frame(width: UIScreen.main.bounds.width / 2, height: 7)
+                                    .foregroundColor(MAIN_COLOR)
+                            }
+                        }.padding(.top, -20)
                     }
                 }
+                ZStack{
+                    Rectangle()
+                        .frame(width: .infinity, height: 100)
+                        .foregroundColor(Color.white)
+                        .padding(.top, -15)
+                    HStack{
+                        //Put navigation bar here
+                        Text("*Insert nav bar here")
+                    }
+                }
+                VStack{
+                    ZStack{
+                        Rectangle()
+                            .frame(width: .infinity, height: 150)
+                            .foregroundColor(Color.white)
+                        Text("Recommended For You")
+                            .padding(.bottom, 100).padding(.leading, -175)
+                    }.padding(.top, 10)
+                    ZStack{
+                        Rectangle()
+                            .frame(width: .infinity, height: 150)
+                            .foregroundColor(Color.white)
+                        Text("Top Rated Locations")
+                            .padding(.bottom, 100).padding(.leading, -175)
+                    }.padding(.top, 10)
+                    ZStack{
+                        Rectangle()
+                            .frame(width: .infinity, height: 150)
+                            .foregroundColor(Color.white)
+                        Text("Your Favorites")
+                            .padding(.bottom, 100).padding(.leading, -175)
+                    }.padding(.top, 10)
+                    ZStack{
+                        Rectangle()
+                            .frame(width: .infinity, height: 150)
+                            .foregroundColor(Color.white)
+                        Text("Try Something New")
+                            .padding(.bottom, 100).padding(.leading, -175)
+                    }.padding(.top, 10)
+                }
+                /*
                 //scrollable view of beverages
                 VStack(alignment: .leading) {
                     let DrinksList = createItems()
@@ -100,6 +160,7 @@ struct BeveragesView: View {
                         .padding(.horizontal, 10.0)
                     }
                 }
+                 */
             }
             .frame(maxHeight: 713)
         }
@@ -142,7 +203,7 @@ struct ContentView_Previews2: PreviewProvider {
     static var previews: some View {
         Group {
             LandingView()
-            BeveragesView()
+            LocationsView()
             LoginView()
         }
     }
