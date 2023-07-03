@@ -338,11 +338,15 @@ struct LandingView: View {
  From this view you should call functions/other views to enhance the product
  */
 struct EventsView: View {
+    private var eventName = "Karoake Night - FortOrangeBrewing"
+    private var eventTime = "Friday, June 23rd , 6-10pm"
+    private var eventDspn = "Join us for an awesome night of open karaoke while enjoying some amazing craft beers!"
+   
     var body: some View {
         ZStack {
             Color(UIColor(backGroundColor))
             ScrollView{
-                VStack {
+                VStack(alignment: .leading, spacing: 35) {
                     Section {
                         ZStack {
                             Rectangle()
@@ -353,7 +357,61 @@ struct EventsView: View {
                                 .font(.largeTitle)
                                 .foregroundColor(Color.white)
                         }
+                        
+                        HStack{
+                            Image(systemName: "mic")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 55)
+                                .cornerRadius(4)
+                                .padding([.leading, .trailing], 10)
+                            VStack(alignment: .leading){
+                                Text(eventName)
+                                    .fontWeight(.bold)
+                                    .lineLimit(2)
+                                    .minimumScaleFactor(0.5)
+                                    //.padding(0.5)
+                                
+                                Text(eventTime)
+                                    .font(.subheadline)
+                                    //.foregroundColor(.secondary)
+                                
+                                Text(eventDspn)
+                                    .font(.subheadline)
+                                    //.foregroundColor(.secondary)
+                                    .padding(.trailing, 10)
+                            }
+                        }
+                        
+                        
+                        HStack{
+                            Image(systemName: "questionmark")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 55)
+                                .cornerRadius(4)
+                                .padding([.leading, .trailing], 10)
+                            VStack(alignment: .leading){
+                                Text(eventName)
+                                    .fontWeight(.bold)
+                                    //.lineLimit(2)
+                                    .minimumScaleFactor(0.5)
+                                    .padding(1)
+                                
+                                Text(eventTime)
+                                    .font(.subheadline)
+                                    //.foregroundColor(.secondary)
+                                
+                                Text(eventDspn)
+                                    .font(.subheadline)
+                                    //.foregroundColor(.secondary)
+                                    .padding(.trailing, 10)
+                            }
+                        }
+                        
                     }
+                   
+                    
                 }
             }
         }
