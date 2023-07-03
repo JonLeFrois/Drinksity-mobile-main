@@ -111,8 +111,44 @@ struct LocationsView: View {
                         .foregroundColor(Color.white)
                         .padding(.top, -15)
                     HStack{
-                        //Put navigation bar here
-                        Text("*Insert nav bar here")
+                        //These all need to be turned into buttons that navigate to their specific pages
+                        VStack{
+                            Image("Breweries")
+                                .padding(.top, -20)
+                            Text("Breweries")
+                                .font(.footnote)
+                                .padding(.top, -10)
+                        }
+                        VStack{
+                            Image("Wineries")
+                                .padding(.top, -20)
+                            Text("Wineries")
+                                .font(.footnote)
+                                .padding(.top, -5)
+                        }
+                        VStack{
+                            Image("Distilleries")
+                                .padding(.top, -25)
+                            Text("Distilleries")
+                                .font(.footnote)
+                                .padding(.top, -10)
+                        }
+                        VStack{
+                            Image("Cideries")
+                                .padding(.top, -15)
+                                .padding(.leading, -10)
+                            Text("Cideries")
+                                .font(.footnote)
+                                .padding(.top, -5)
+                        }
+                        VStack{
+                            Image("FoodandDrink")
+                                .padding(.top, -10)
+                            Text("Food &\nDrink")
+                                .font(.footnote)
+                                .multilineTextAlignment(.center)
+                                .padding(.top, -20)
+                        }
                     }
                 }
                 VStack{
