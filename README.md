@@ -1,6 +1,6 @@
 # Drinksity-mobile
 #author_
 
-Figma Link: https://www.figma.com/file/XRUxZhlg7A380Z1n2iK8F5/Drinksity-Wireframes?node-id=0%3A1
+Figma Link: https://www.figma.com/file/KV51YgiNxj2No3PVDXlfdF/Drinksity-Prototype?type=design&node-id=0-1&mode=design&t=QinUszo5O9Qi5k3O-0
 
-Drive Link: https://drive.google.com/drive/u/2/folders/1xQ0tdedeTl1pnc59cgA_0Lrtqiou8S3G
+Drive Link: https://drive.google.com/drive/u/1/folders/11zvfW9dtv42O_dOOZ5m0gLfoJVyiac3Z
